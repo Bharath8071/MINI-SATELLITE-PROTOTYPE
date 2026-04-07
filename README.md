@@ -3,9 +3,10 @@
 ![Platform](https://img.shields.io/badge/Platform-ESP32-blue)
 ![Language](https://img.shields.io/badge/Language-Arduino%20C%2B%2B-orange)
 ![Cloud](https://img.shields.io/badge/Cloud-ThingSpeak-green)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
+![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-red)
+![Status](https://img.shields.io/badge/status-under--development-orange)
 
-A real-time IoT environmental monitoring system built on the **ESP32** microcontroller. It collects multi-sensor environmental data, uploads it to **ThingSpeak** over WiFi, and buffers data on an **SD card** during offline periods. The **SIM868** module serves dual roles — GSM data communication and built-in GPS for location tracking. Location is resolved through a **3-tier fallback system**: onboard GPS first, GSM cell tower triangulation via BeaconDB second, and WiFi-based geolocation as a final fallback.
+A real-time IoT environmental monitoring system built on the **ESP32** microcontroller. It collects multi-sensor environmental data, uploads it to **ThingSpeak** over WiFi, and buffers data on an **SD card** during offline periods. The **SIM868** module serves dual roles — GSM data communication and built-in GPS for location tracking. Location is resolved through a **3-tier fallback system**: onboard GPS first or GSM cell tower triangulation via BeaconDB API second as a final fallback.
 
 Ideal for CanSat, weather balloon payloads, remote weather stations, or any edge IoT deployment.
 
@@ -33,14 +34,14 @@ Ideal for CanSat, weather balloon payloads, remote weather stations, or any edge
 
 ## ✨ Features
 
+- ⏰ **NTP time synchronization** — Accurate IST timestamps synced to SIM868
 - 🌡️ **Triple temperature sensing** — LM35 (analog), DHT22, and BMP280
 - 💧 **Humidity monitoring** — DHT22 sensor
 - 📈 **Atmospheric pressure & altitude** — BMP280 via I2C
-- 📡 **3-tier geolocation** — SIM868 built-in GPS → GSM cell tower triangulation (BeaconDB) → WiFi-based fallback
 - 📶 **Dual-role SIM868** — Handles both GSM data communication and onboard GPS location
+- 📡 **3-tier geolocation** — SIM868 built-in GPS → GSM cell tower triangulation (BeaconDB)
 - ☁️ **Cloud IoT upload** — Real-time data streaming to ThingSpeak (7 fields)
 - 💾 **Offline SD card buffering** — No data loss during WiFi outages
-- ⏰ **NTP time synchronization** — Accurate IST timestamps synced to SIM868
 - 🔁 **Auto-recovery** — Buffered SD data re-uploaded automatically when WiFi reconnects
 
 ---
@@ -77,7 +78,7 @@ Ideal for CanSat, weather balloon payloads, remote weather stations, or any edge
 | SD Card (MISO) | GPIO 19 |
 | SD Card (SCK) | GPIO 18 |
 
-> ⚠️ BMP280 I2C address is set to `0x76`. Change in code if yours is `0x77`.
+<!-- ⚠️ BMP280 I2C address is set to `0x76`. Change in code if yours is `0x77`. -->
 
 ---
 
@@ -111,9 +112,6 @@ The SIM868 serves multiple functions in this project:
 **GSM Cell Tower Triangulation (Secondary Fallback)**
 - If GPS fails or has no fix, cell tower data (MCC, MNC, LAC, Cell ID) is sent to the **BeaconDB API**
 - Returns an estimated lat/lng based on tower positions
-
-**WiFi-Based Geolocation (Final Fallback)**
-- If both GPS and GSM triangulation fail, WiFi network scanning is used as a last-resort location method
 
 ---
 
@@ -149,7 +147,7 @@ const char* ssid     = "YOUR_WIFI_SSID";
 const char* password = "YOUR_WIFI_PASSWORD";
 
 // ThingSpeak Channel
-unsigned long myChannelNumber = YOUR_CHANNEL_NUMBER;
+unsigned long myChannelNO = "YOUR_CHANNEL_NO";
 const char* myWriteAPIKey     = "YOUR_WRITE_API_KEY";
 ```
 
@@ -340,8 +338,12 @@ SAT-WiFi-Monitor/
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — feel free to use, modify, and distribute.
+This project is provided for educational and demonstration purposes only.  
+Unauthorized use, copying, or modification is strictly prohibited.
 
----
+## 🚧 Work in Progress
+
+This project is currently under active development and is not yet complete.  
+Features, architecture, and implementation may change over time.
 
 > 🛠️ Built with ESP32, Arduino, and a passion for embedded IoT systems.
