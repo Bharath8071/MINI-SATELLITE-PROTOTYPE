@@ -329,9 +329,9 @@ The API returns an estimated `lat` and `lng`, which are stored globally and incl
 ```
 SAT-WiFi-Monitor/
 │
-├── main.ino   # Main Arduino firmware
-├── config_temp_example.h # config template
-├── LICENSE.txt # LICENSE document
+├── main.ino                 # Main Arduino firmware
+├── config_temp_example.h    # config template
+├── LICENSE.txt              # LICENSE document
 └── README.md                # Project documentation
 ```
 
