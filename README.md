@@ -139,7 +139,7 @@ ArduinoJson      by Benoit Blanchon
 
 ## ⚙️ Configuration
 
-Open `SAT_wificode_FINAL.ino` and update the following:
+Open `config_temp.h` and update the following:
 
 ```cpp
 // WiFi Credentials
@@ -290,22 +290,21 @@ The API returns an estimated `lat` and `lng`, which are stored globally and incl
 ## 🚀 Getting Started
 
 1. **Clone this repository**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/SAT-WiFi-Monitor.git
-   cd SAT-WiFi-Monitor
-   ```
-
+```bash
+   git clone https://github.com/Bharath8071/MINI-SATELLITE-PROTOTYPE
+   cd MINI-SATELLITE-PROTOTYPE
+```
 2. **Open in Arduino IDE** or PlatformIO
 
 3. **Install all libraries** listed in [Software Dependencies](#-software-dependencies)
 
-4. **Update credentials** in the configuration section of the `.ino` file
+4. **Update credentials** in `config_temp_example.h` with your WiFi and ThingSpeak details
 
 5. **Select board**: `ESP32 Dev Module`
 
 6. **Set baud rate**: `9600`
 
-7. **Upload** to your ESP32
+7. **Upload** `main.ino` to your ESP32
 
 8. **Open Serial Monitor** at 9600 baud to see live logs
 
@@ -330,7 +329,9 @@ The API returns an estimated `lat` and `lng`, which are stored globally and incl
 ```
 SAT-WiFi-Monitor/
 │
-├── SAT_wificode_FINAL.ino   # Main Arduino firmware
+├── main.ino   # Main Arduino firmware
+├── config_temp_example.h # config template
+├── LICENSE.txt # LICENSE document
 └── README.md                # Project documentation
 ```
 
